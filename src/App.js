@@ -42,7 +42,7 @@ return (
   <div className="App">
      
         <div className="container designWrapper">
-            <strong>Blogs</strong>around    
+            <strong>Bookings</strong>around    
             <Link to='/login' className="login-btn">signin</Link>
         </div>
        <Switch>

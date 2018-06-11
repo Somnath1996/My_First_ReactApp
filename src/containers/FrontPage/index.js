@@ -8,7 +8,7 @@ const FrontPage = (props) => {
         
         <div>
 <Carousel/>
-<div><h1>Welcome to<b> Blogs</b>around</h1></div>
+<div><h1>Welcome to<b> Bookings</b>around</h1></div>
 <BlogComposer title={props.title} bio={props.bio}/>
 <Footer/>
         </div>

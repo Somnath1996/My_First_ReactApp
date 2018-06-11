@@ -61,8 +61,8 @@ const Footerbar = (props) => {
 			</div>	
 			<div className="row">
 				<div className="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-					<p><b>Blogs</b>around is a Registered ISO company, Inc. India </p>
-					<p className="h6">&copy All right Reversed.<a className="text-green ml-2" href="#" target="_blank"><b>Blogs</b>around</a></p>
+					<p><b>Bookings</b>around is a Registered ISO company, Inc. India </p>
+					<p className="h6">&copy All right Reversed.<a className="text-green ml-2" href="#" target="_blank"><b>Bookings</b>around</a></p>
 				</div>
 				<hr/>
 			</div>	
