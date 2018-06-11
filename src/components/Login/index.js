@@ -137,8 +137,9 @@ password:event.target.value
       
         <div className="container loginscreen">
             <div className="col-md-12 " >
+            <div className={this.state.theLoader}></div>
                 <div className="card">
-                    <div className={this.state.theLoader}></div>
+                  
                         
                     
                 <div align="left" >
@@ -153,7 +154,11 @@ password:event.target.value
                             
                             
                             <button className="btn btn-primary" onClick={this.activateLoader}>{buttonText}</button>
+                                    
+                            <div className="registerLink">
+                                    <Link to='/register' >Create account</Link>
                                     </div>
+                            </div>
                             </div>
                     </div>
             </div> 

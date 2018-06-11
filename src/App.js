@@ -1,38 +1,65 @@
 import React, { Component } from 'react';
 import './App.css';
-import Headerbar from './components/Headerbar'
-import Blog from './components/Blog'
-import Login from './components/Login'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
+import Headerbar from './components/Headerbar'  // imported this for the css
+import FrontPage from './containers/FrontPage'
 import Register from './components/Register'
 
-class App extends Component {
+import Login from './components/Login'
 
+import Switch from 'react-router-dom/Switch';
+
+class App extends Component {
+//static fake data use the backend integration
   constructor(props) {
     super(props);
-   let sdf="\"evryday frjfbcks dfne kfnfkshfvenc df cejdf vje ixenf eifdewfh  efe erjf xefjons fwjfneijf eisf eivf ei j"
+   let sdf="\"These are the dummy text data will be fetched from the backed frjfbcks dfne kfnfkshfvenc df cejdf vje ixenf eifdewfh  efe erjf xefjons fwjfneijf eisf eivf eisdfsdfj"
     this.state = {
       blog:{
       title:"Lorem ipsum",
-      bio:sdf,
-      date:new Date()},
+      bio:sdf
+     },
 
       Auth:{
         authStatus:"true"
-
-      }
+        }
     };
-  }
+}
 
-  render() {
-    return (
-      <div className="App">
+    
 
-        {console.log(this.state.blog.date)}
-        <Headerbar/>
-        <Login/>
-      </div>
+
+render() {
+
+
+return (
+<Router>
+  <div className="App">
+     
+        <div className="container designWrapper">
+            <strong>Blogs</strong>around    
+            <Link to='/login' className="login-btn">signin</Link>
+        </div>
+       <Switch>
+        <Route exact strict path="/" component={() => <FrontPage title={this.state.blog.title} bio={this.state.blog.bio}/>} />
+        <Route path='/login' component={Login} />
+        <Route path='/register' component={Register} />
+    </Switch>        
+        
+      
+  </div>
+</Router>
     );
   }
 }
+
+
+
+
 
 export default App;                 

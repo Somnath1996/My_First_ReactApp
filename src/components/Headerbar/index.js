@@ -1,5 +1,9 @@
 import React from 'react';
 import './styles.css'
+import {
+    BrowserRouter as Router,
+    Link,
+    } from "react-router-dom";
 
 let loginState ;
 
@@ -12,16 +16,16 @@ if(props.authStatus){
 }else{loginState="signin"}
 
     return (
+        <Router>
          <div >
-        {/* <div className="headerwrapper" >
-        {loginState}
-        </div > */}
-        <div className="designWrapper">
         
-            <strong>The Blog</strong>
-            
-        </div>        
+        <div className="container designWrapper">
+            <strong>Blogs</strong>around    
+            <Link to='/loginState' className="login-btn">{loginState}</Link>
         </div>
+        </div>        
+       
+        </Router>
     )
 
 }
