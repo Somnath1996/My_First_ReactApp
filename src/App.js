@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
+  Route
 } from "react-router-dom";
 import Headerbar from './components/Headerbar'  // imported this for the css
 import FrontPage from './containers/FrontPage'
 import Register from './components/Register'
-
+import ForgotPassword from './components/ForgotPassword'
 import Login from './components/Login'
-
+import BlogView from './components/BlogView'
+import Profile from './components/Profile'
 import Switch from 'react-router-dom/Switch';
 
 class App extends Component {
@@ -34,6 +33,7 @@ class App extends Component {
     
 
 
+
 render() {
 
 
@@ -41,14 +41,14 @@ return (
 <Router>
   <div className="App">
      
-        <div className="container designWrapper">
-            <strong>Bookings</strong>around    
-            <Link to='/login' className="login-btn">signin</Link>
-        </div>
+       <Headerbar/>
        <Switch>
         <Route exact strict path="/" component={() => <FrontPage title={this.state.blog.title} bio={this.state.blog.bio}/>} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
+        <Route path='/forgotpassword' component={ForgotPassword} />
+        <Route path='/blogview' component={BlogView}/>
+        <Route path='/profile' component={Profile}/>
     </Switch>        
         
       

@@ -6,8 +6,7 @@ import {
     BrowserRouter as Router,
     Route,
     Link,
-    Redirect,
-    withRouter
+    Redirect
   } from "react-router-dom";
 class Login extends Component {
 
@@ -16,7 +15,6 @@ class Login extends Component {
   
 
     this.state = {
-
 theLoader:"loaderOff",
 user:false,
 email:null,
@@ -52,6 +50,10 @@ console.log(this.state)
       .then((response)=> {
 
 console.log(response.data.user);
+if(response.data.user==true)
+{
+    console.log(response.data.user);
+    console.log("the user is legit")
         this.setState(
       {
          theLoader:"loaderOff",
@@ -66,6 +68,16 @@ console.log(response.data.user);
         }
             }
 )
+
+      }
+
+else {
+    console.log("the user is not legit")
+    window.alert("The username or password did not match")
+    this.setState({
+        theLoader:"loaderOff"
+    })
+}
 console.log("the state after api req&&&&&&**********")
 console.log(this.state)
 //   Limk to the home page here
@@ -74,6 +86,11 @@ console.log(this.state)
 //console.log(response.data.user);
       })
       .catch((error)=> {
+          this.setState(
+              {
+                  theLoader:"loaderOff"
+              }
+          )
         console.log(error);
       });
 
@@ -154,10 +171,15 @@ password:event.target.value
                             
                             
                             <button className="btn btn-primary" onClick={this.activateLoader}>{buttonText}</button>
+                            <span className="forgotpswdLink">
+                                    <Link to='/forgotpassword' >Forgot password</Link>
+                                    </span>
                                     
                             <div className="registerLink">
                                     <Link to='/register' >Create account</Link>
+                                    
                                     </div>
+                                    
                             </div>
                             </div>
                     </div>

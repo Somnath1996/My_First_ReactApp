@@ -1,6 +1,6 @@
 
 .loginscreen.container{
-    max-width: 600px;
+    max-width: 900px;
     padding: 38px 60px;
 }
 
@@ -22,7 +22,12 @@ background-color: whitesmoke;
     width: 100%;
     letter-spacing: 3px;
     color: #646F78    ;
-    background-color: #fff;
+    background-color: #F7F7F7;
+}
+
+.logo-button{
+    text-decoration: none;
+    color: #646F78    ;
 }
 .blog-wrapper{
     background-color: aqua;
@@ -38,6 +43,11 @@ background-color: whitesmoke;
     
     
 }
+.forgotpswdLink{
+    float: right;
+    padding: 33px 24px 24px 24px;
+    font-size: 13px;  
+}
 .registerLink{
     padding: 54px 24px 24px 24px;
     font-size: 16px;
@@ -47,14 +57,16 @@ background-color: whitesmoke;
     padding: 84px 60px;
 }
 .card_img{
-    width: 295px;
-    height: 200px;;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
+
 .card {
     width: 100%;
     display: inline-block;
-    min-height: 506px;
-    padding: 15px 15px 15px 15px;
+    min-height: 424px;
+    padding: 15px 10px 15px 10px;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
@@ -152,8 +164,13 @@ a.login-btn {
     text-transform: capitalize;
     float: right;
 }
-h1,h3{
+h1,h3,h4{
     color: #414346;
 }
-
+.profile-btn{
+    float: right;
+    font-size: 13.5px;
+    padding: 5px;
+    padding-right: 22px;
+}
 

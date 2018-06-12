@@ -16,16 +16,15 @@ if(props.authStatus){
 }else{loginState="signin"}
 
     return (
-        <Router>
-         <div >
-        
-        <div className="container designWrapper">
-            <strong>Blogs</strong>around    
-            <Link to='/loginState' className="login-btn">{loginState}</Link>
+     
+        <div className="designWrapper">
+        <div className="container">
+            <Link to='/' className="logo-button"><strong>Blogs</strong>around</Link>   
+            <Link to='/login' className="login-btn">signin</Link>
+            <Link to='/profile' className="profile-btn">Profile</Link> 
+    
         </div>
-        </div>        
-       
-        </Router>
+        </div>
     )
 
 }

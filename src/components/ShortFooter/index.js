@@ -13,36 +13,8 @@ const Footerbar = (props) => {
     return (
         <Router>
             	<section id="footer">
-      	<div className="container">
-			<div className="row text-center text-xs-center text-sm-left text-md-left">
-				<div className="col-xs-12 col-sm-4 col-md-4">
-					<h5>Quick links</h5>
-					<ul className="list-unstyled quick-links">
-						<li><a href="#"><i className="fa fa-angle-double-right"></i>Home</a></li>
-						<li><a href="#"><i className="fa fa-angle-double-right"></i>About</a></li>
-						<li><a href="#"><i className="fa fa-angle-double-right"></i>FAQ</a></li>
-				
-					</ul>
-				</div>
-				<div className="col-xs-12 col-sm-4 col-md-4">
-					<h5>Quick links</h5>
-					<ul className="list-unstyled quick-links">
-						<li><a href="#"><i className="fa fa-angle-double-right"></i>Home</a></li>
-						<li><a href="#"><i className="fa fa-angle-double-right"></i>About</a></li>
-						<li><a href="#"><i className="fa fa-angle-double-right"></i>FAQ</a></li>
-					
-					</ul>
-				</div>
-				<div className="col-xs-12 col-sm-4 col-md-4">
-					<h5>Quick links</h5>
-					<ul className="list-unstyled quick-links">
-						<li><a href="#"><i className="fa fa-angle-double-right"></i>Home</a></li>
-						<li><a href="#"><i className="fa fa-angle-double-right"></i>About</a></li>
-						<li><a href="#"><i className="fa fa-angle-double-right"></i>FAQ</a></li>
-						
-					</ul>
-				</div>
-			</div>
+      	<div className="container short-footer">
+		
 			<div className="row">
 				<div className="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
 					<ul className="list-unstyled list-inline social text-center">
