@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import httpClient from './HttpCommunicator'
 import {
   BrowserRouter as Router,
   Route
@@ -19,6 +20,7 @@ class App extends Component {
     super(props);
    let sdf="\"These are the dummy text data will be fetched from the backed frjfbcks dfne kfnfkshfvenc df cejdf vje ixenf eifdewfh  efe erjf xefjons fwjfneijf eisf eivf eisdfsdfj"
     this.state = {
+      currentUser: httpClient.getCurrentUser(),
       blog:{
       title:"Lorem ipsum",
       bio:sdf
@@ -28,10 +30,16 @@ class App extends Component {
         authStatus:"true"
         }
     };
+
+
+
+
 }
 
     
-
+onLoginSuccess(user) {
+  this.setState({ currentUser: httpClient.getCurrentUser() })
+}
 
 
 render() {
@@ -44,7 +52,11 @@ return (
        <Headerbar/>
        <Switch>
         <Route exact strict path="/" component={() => <FrontPage title={this.state.blog.title} bio={this.state.blog.bio}/>} />
-        <Route path='/login' component={Login} />
+
+        	<Route path="/login" render={(props) => {
+						return <Login {...props} onLoginSuccess={this.onLoginSuccess.bind(this)} />
+					}} />
+       
         <Route path='/register' component={Register} />
         <Route path='/forgotpassword' component={ForgotPassword} />
         <Route path='/blogview' component={BlogView}/>

@@ -17,7 +17,7 @@ if(props.authStatus){
 
     return (
      
-        <div className="designWrapper">
+        <div className="designWrapper ">
         <div className="container">
             <Link to='/' className="logo-button"><strong>Blogs</strong>around</Link>   
             <Link to='/login' className="login-btn">signin</Link>

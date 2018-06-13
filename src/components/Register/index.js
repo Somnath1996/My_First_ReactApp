@@ -4,9 +4,8 @@ import axios from 'axios';
 import {
     BrowserRouter as Router,
     Route,
-    Link,
     Redirect,
-    withRouter
+    
   } from "react-router-dom";
 import Result from './Result';
   

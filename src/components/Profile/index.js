@@ -5,18 +5,23 @@ import './pstyle.css';
 import some from '../Carousel/images/profilesideimage.jpg'
 import {
     BrowserRouter as Router,
-    Link,
     Redirect
   } from "react-router-dom";
-class Profile extends Component {
+
+  class Profile extends Component {
 
   constructor(props) {
     super(props);
   
 
     this.state = {
-theLoader:"loaderOff"
- };
+            bio:null,
+            blogsCount:null,
+            auth:{
+                uid : this.props.uid,
+                token : this.props.token
+            }
+                 };
     this.activateLoader = this.activateLoader.bind(this);
   }
   
@@ -95,34 +100,22 @@ console.log(this.state)
   render() {
     
 
-      if (this.state.pCreate===true) {
    
-        return (
-            <Router>
-                <div>
-                <Redirect to='/result'/>
-                </div>
-            </Router>
-            )
-        }
-
     return (
       
         <div className="container profiler">
             <div className="row myborder" >
                 <div className="col-md-6" align="left">
 
-                 <h1 className="font56">John Doe</h1>
-                <p className="font15">July-26-2017 | 13 blogs</p>
+                 <h1 className="font56">{this.props.username}</h1>
+                <p className="font15">{this.props.date}| {(this.state.blogsCount) ? this.state.blogsCount:"counting"} blogs</p>
                 <hr/>
                 <h4>Bio</h4>
-                <p> 
-                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit fgdfgfg sdfsd sdf sgsd sasdhASghweGJJTKTFGN....
-                </p>
-
+                <p> {this.state.bio}</p>
                 </div>
+
+
                 <div className="col-md-6">
-                    <div className={this.state.theLoader}></div>
                     <div className="profile-header">
                         <img className="profile-image " src={some} alt="blog-view1" />
                         <div className="name-placement">

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import httpClient from '../../HttpCommunicator'
 import Result from '../Register/Result'
 
 import {
@@ -14,115 +14,73 @@ class Login extends Component {
     super(props);
   
 
-    this.state = {
+this.state = {
+email: '',
+password: '',
 theLoader:"loaderOff",
-user:false,
-email:null,
-password:null,
-Auth:{
-    uid:null,
-    username:null,
-    bio:null,
-    token:null,
-
-}
-        
-        };
+};
 
 
-    this.activateLoader = this.activateLoader.bind(this);
-  }
+// bind  on button submit 
+    this.activateLoader = this.activateLoader.bind(this);}
   
+
 
    activateLoader=()=> {
     
-    this.setState(
-        {theLoader:"loaderOn"})
-console.log("*******");
+    this.setState({theLoader:"loaderOn"})
+console.log("*******Loader has been turned onn");
 console.log(this.state)
+ //POST email and pasword to the backend   
+ const fields ={
+     email:this.state.email,
+     password:this.state.password
+                }
+                httpClient.logIn(fields).then(user => {
+    // remove the sensitive information from the state
+    this.setState({  email: '', password: ''  })
+    // if the credentials match
+    if(user) {
+        //Inform the parent to update its state***************!!!!!!!!!!!!
+       this.props.onLoginSuccess(user)
+        //Turn the loader off
+        this.setState( {theLoader:"loaderOff"})
+        // REDIRECT programatically to the home after login success
+        this.props.history.push('/')
+    // turn the loader off
+    }
+    else{
+        console.log("Error Occured or the fields didnot match")
+        this.setState( {theLoader:"loaderOff"})
+    }
+
+})
     
-    
-    let url = 'http://localhost:3000/routes/handlers/users/login';
-    axios.post(url, {
-        email:this.state.email,
-        password:this.state.password
-      })
-      .then((response)=> {
-
-console.log(response.data.user);
-if(response.data.user==true)
-{
-    console.log(response.data.user);
-    console.log("the user is legit")
-        this.setState(
-      {
-         theLoader:"loaderOff",
-          user:response.data.user,
-          email:this.state.email,
-          Auth:{
-            uid:response.data.userdetails.uid,
-            username:response.data.userdetails.username,
-            bio:response.data.userdetails.bio,
-            token:response.data.userdetails.token,
-        
-        }
-            }
-)
-
-      }
-
-else {
-    console.log("the user is not legit")
-    window.alert("The username or password did not match")
-    this.setState({
-        theLoader:"loaderOff"
-    })
-}
-console.log("the state after api req&&&&&&**********")
-console.log(this.state)
-//   Limk to the home page here
-
-
-//console.log(response.data.user);
-      })
-      .catch((error)=> {
-          this.setState(
-              {
-                  theLoader:"loaderOff"
-              }
-          )
-        console.log(error);
-      });
 
    }
 
 
+//***********-------------------change Handlers */
+    
    emailChangedHandler = (event) => {
-
-
-    //const persons = [...this.state.persons];
-    //persons[personIndex] = person;
-
-    //this.setState( {persons: persons} );
-
-    this.setState( {
- email:event.target.value} )
-        console.log("state after the emailhandler")
-    console.log(this.state)
+        this.setState({
+            email:event.target.value})
+          console.log(this.state)
   }
   
 
 
 
 
-  passwordChangedHandler = (event) => {
-    this.setState( 
-        {
-password:event.target.value
-    } )
-    console.log(this.state)
+   passwordChangedHandler = (event) => {
+        this.setState(  {
+        password:event.target.value} )
+           console.log(this.state)
   }  
 
+
+
+   
   render() {
 
     let inputName="email";
