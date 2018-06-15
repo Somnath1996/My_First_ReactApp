@@ -28,6 +28,8 @@ theLoader:"loaderOff",
 
    activateLoader=()=> {
     
+
+
     this.setState({theLoader:"loaderOn"})
 console.log("*******Loader has been turned onn");
 console.log(this.state)
@@ -50,6 +52,7 @@ console.log(this.state)
     // turn the loader off
     }
     else{
+        window.alert("Error Occured or the fields didnot match")
         console.log("Error Occured or the fields didnot match")
         this.setState( {theLoader:"loaderOff"})
     }

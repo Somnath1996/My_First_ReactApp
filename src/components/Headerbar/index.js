@@ -1,29 +1,33 @@
 import React from 'react';
 import './styles.css'
 import {
-    BrowserRouter as Router,
     Link,
     } from "react-router-dom";
 
-let loginState ;
 
 
+let status ="";
 
+    
 const Headerbar = (props) => {
- 
-if(props.authStatus){
-    loginState="signout";
-}else{loginState="signin"}
+    if (props.currentUser) {
+        status= (<span>
+               <Link to='/logout' className="login-btn">Logout</Link>
+                <Link to='/profile' className="profile-btn">Profile</Link>  
+        </span>)   
+     }
+     else{ status=(<Link to='/login' className="login-btn">Login</Link>)}
 
     return (
      
         <div className="designWrapper ">
         <div className="container">
-            <Link to='/' className="logo-button"><strong>Blogs</strong>around</Link>   
-            <Link to='/login' className="login-btn">signin</Link>
-            <Link to='/profile' className="profile-btn">Profile</Link> 
+        <Link to='/' className="logo-button"><strong>Blogs</strong>around</Link> 
+        {status}
+              
     
-        </div>
+         
+              </div>
         </div>
     )
 

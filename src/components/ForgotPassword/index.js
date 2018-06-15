@@ -35,7 +35,7 @@ console.log(this.state)
       .then((response)=> {
 
 console.log(response.data.pCreate);
-if(response.data.pCreate==true)
+if(response.data.pCreate===true)
 {
     console.log(response.data.pCreate);
     console.log("Random password genration sucessful")    
