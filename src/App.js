@@ -80,7 +80,12 @@ class App extends Component {
 
             <Route path="/register" component={Register} />
             <Route path="/forgotpassword" component={ForgotPassword} />
-            <Route path="/blogview" component={BlogView} />
+            <Route
+              path="/blogview"
+              render={props => {
+                return <BlogView {...props} />;
+              }}
+            />
             <Route path="/profile" component={Profile} />
           </Switch>
         </div>

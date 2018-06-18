@@ -20,9 +20,12 @@ class FrontPage extends Component {
       .then(response => {
         console.log("the received res sssssssssssssssssss");
         console.log(response.blogs);
+        
         this.setState({
           blogs: response.blogs,
          });
+         console.log("#########")
+         console.log(this.state)
       })
       .catch(error => {
         console.log("error occured in getting bio from bckend");
@@ -31,6 +34,7 @@ class FrontPage extends Component {
   }
 
   render() {
+    if(this.state.blogs){
     return (
       <div>
         <Carousel />
@@ -43,6 +47,13 @@ class FrontPage extends Component {
         <Footer />
       </div>
     );
+  }
+else{
+  return(<h1>still rendering </h1>)
+
+}
+
+
   }
 }
 

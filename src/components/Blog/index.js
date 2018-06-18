@@ -1,5 +1,4 @@
 import React from "react";
-import some from "../Carousel/images/some.jpg";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 const Blog = props => {
   return (
@@ -7,8 +6,8 @@ const Blog = props => {
       <div className="card">
         <div>
           <img className="card_img" src={props.image} alt="blogimage" />
-          
-          <Link to="/blogview">
+       
+     <Link to={{ pathname: '/blogview', state: { ...props} }}>
             <h3>
               <b>{props.title}</b>
             </h3>

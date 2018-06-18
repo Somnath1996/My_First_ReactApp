@@ -42,7 +42,7 @@ httpClient.logIn = function(credentials) {
   });
 };
 
-//get the user bio and date of account creation using the backend call     
+//get the user bio and date of account creation using the backend call
 httpClient.getBio = function() {
   return this({
     method: "get",
@@ -56,21 +56,32 @@ httpClient.getBio = function() {
   });
 };
 
-
 //get the user title image description using the backend call
 httpClient.getBlog = function() {
   return this({
     method: "get",
-    url:" http://localhost:3000/routes/handlers/home/article"
+    url: " http://localhost:3000/routes/handlers/home/article"
   }).then(serverResponse => {
     console.log("HHHHHHHHHHHHHHHHHHHHHHHH");
     console.log(serverResponse.data);
-    let response =serverResponse.data;
+    let response = serverResponse.data;
     return response;
   });
 };
 
-
+//get the blog body,authorname,time-stamp date
+httpClient.getBlogBody = function(articleid) {
+  return this({
+    method: "post",
+    url: " http://localhost:3000/routes/handlers/home/article/blogbody",
+    data: articleid
+  }).then(serverResponse => {
+    console.log("HHHHHHHHHHHHHHHHHHHHHHHH");
+    console.log(serverResponse.data);
+    let response = serverResponse.data;
+    return response;
+  });
+};
 
 // logIn and signUp functions could be combined into one since the only difference is the url we're sending a request to..
 httpClient.signUp = function(userInfo) {
