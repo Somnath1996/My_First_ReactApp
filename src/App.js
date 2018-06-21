@@ -10,7 +10,9 @@ import ForgotPassword from "./components/ForgotPassword";
 import Login from "./components/Login";
 import BlogView from "./components/BlogView";
 import Profile from "./components/Profile";
+import Write from "./components/Write"
 import Switch from "react-router-dom/Switch";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 class App extends Component {
   //static fake data use the backend integration
@@ -45,6 +47,7 @@ class App extends Component {
   render() {
     return (
       <Router>
+           <MuiThemeProvider>
         <div className="App">
           <Headerbar currentUser={this.state.currentUser} />
           <Switch>
@@ -87,8 +90,10 @@ class App extends Component {
               }}
             />
             <Route path="/profile" component={Profile} />
+            <Route path="/write" component={Write} />
           </Switch>
         </div>
+    </MuiThemeProvider>
       </Router>
     );
   }

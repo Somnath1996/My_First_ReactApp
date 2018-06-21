@@ -20,12 +20,12 @@ class FrontPage extends Component {
       .then(response => {
         console.log("the received res sssssssssssssssssss");
         console.log(response.blogs);
-        
+
         this.setState({
-          blogs: response.blogs,
-         });
-         console.log("#########")
-         console.log(this.state)
+          blogs: response.blogs
+        });
+        console.log("#########");
+        console.log(this.state);
       })
       .catch(error => {
         console.log("error occured in getting bio from bckend");
@@ -34,26 +34,28 @@ class FrontPage extends Component {
   }
 
   render() {
-    if(this.state.blogs){
-    return (
-      <div>
-        <Carousel />
+    if (this.state.blogs) {
+      return (
         <div>
-          <h1>
-            Welcome to<b> Blogs</b>around
-          </h1>
+          <Carousel />
+          <div>
+            <h1>
+              Welcome to<b> Blogs</b>around
+            </h1>
+          </div>
+          <BlogComposer blogs={this.state.blogs} />
+          <Footer />
         </div>
-        <BlogComposer blogs={this.state.blogs} />
-        <Footer />
-      </div>
+      );
+    } else {
+    return (
+    <div>
+    <h1>still rendering</h1>
+          <img src="http://gifimage.net/wp-content/uploads/2017/09/ajax-loader-gif-13.gif" alt="still loading"/>
+          <h3>please reload</h3>
+    </div>
     );
-  }
-else{
-  return(<h1>still rendering </h1>)
-
-}
-
-
+    }
   }
 }
 

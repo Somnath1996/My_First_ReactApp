@@ -1,0 +1,34 @@
+textarea{
+    margin-left: 15px;
+}
+.textArea-main{
+    margin-left: 15px;
+}
+.titleClass{
+    color: #373737;
+    font-size: 24px;
+    font-weight: 800;
+}
+.descclass{
+    color: #3f3d3d;
+    font-size: 18px;
+    font-weight: 450;  
+}
+.bodyclass{
+    color: #3f3d3d;
+    font-size: 16px;
+    font-weight: 400;  
+}
+.url-class{
+    margin-bottom: 15px;
+}
+.padderTop20{
+    padding-top: 25px;
+}
+.marginTop20{
+    margin-top: 20px;
+}
+
+.ql-editor {
+    min-height: 18em;
+  }

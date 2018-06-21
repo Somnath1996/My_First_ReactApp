@@ -14,6 +14,7 @@ const Headerbar = (props) => {
         status= (<span>
                <Link to='/logout' className="login-btn">Logout</Link>
                 <Link to='/profile' className="profile-btn">Profile</Link>  
+                <Link to='/write' className="profile-btn">write</Link>  
         </span>)   
      }
      else{ status=(<Link to='/login' className="login-btn">Login</Link>)}

@@ -42,6 +42,22 @@ httpClient.logIn = function(credentials) {
   });
 };
 
+
+//send the blog data  to backend server
+httpClient.createBlog = function(details) {
+  return this({
+    method: "post",
+    url: " http://localhost:3000/routes/handlers/home/article",
+    data: details
+  }).then(serverResponse => {
+    console.log(serverResponse);
+   return serverResponse.data.status;
+
+  });
+};
+
+
+
 //get the user bio and date of account creation using the backend call
 httpClient.getBio = function() {
   return this({
@@ -68,6 +84,8 @@ httpClient.getBlog = function() {
     return response;
   });
 };
+
+
 
 //get the blog body,authorname,time-stamp date
 httpClient.getBlogBody = function(articleid) {

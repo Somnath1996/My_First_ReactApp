@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Footer from "../Footerbar";
 import "./bstyle.css";
 import httpClient from "../../HttpCommunicator";
-import { BrowserRouter as Router, Redirect } from "react-router-dom";
+import ReactHtmlParser from 'react-html-parser';
 
 class BlogView extends Component {
   constructor(props) {
@@ -41,6 +41,8 @@ class BlogView extends Component {
   }
 
   render() {
+
+    
     console.log(this.props);
     return (
       <div className="container">
@@ -62,12 +64,18 @@ class BlogView extends Component {
             <div align="left">
               <h4 className="font36">{this.props.location.state.title}</h4>
               <h6>
-            
-                <b>{this.state.blogs.author} | {this.state.blogs.timestamp}</b>{" "}
+                <b>
+                  {this.state.blogs.author} | {this.state.blogs.timestamp}
+                </b>{" "}
               </h6>
               <p className="font24">{this.props.location.state.description}</p>
 
-              <p className="font20">{this.state.blogs.body}</p>
+
+
+
+
+
+              <p className="font20"> { ReactHtmlParser(this.state.blogs.body) }</p>
             </div>
           </div>
         </div>

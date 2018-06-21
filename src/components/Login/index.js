@@ -1,131 +1,146 @@
-import React, { Component } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import TextField from "material-ui/TextField";
 import httpClient from "../../HttpCommunicator";
-import Result from "../Register/Result";
+import RaisedButton from "material-ui/RaisedButton";
+import Typography from "@material-ui/core/Typography";
+import "./styles.css";
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect
-} from "react-router-dom";
-class Login extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      email: "",
-      password: "",
-      theLoader: "loaderOff"
-    };
-
-    // bind  on button submit
-    this.activateLoader = this.activateLoader.bind(this);
-  }
-
-  activateLoader = () => {
-    this.setState({ theLoader: "loaderOn" });
-    console.log("*******Loader has been turned onn");
-    console.log(this.state);
-    //POST email and pasword to the backend
-    const fields = {
-      email: this.state.email,
-      password: this.state.password
-    };
-
-    
-    httpClient.logIn(fields).then(user => {
-      // remove the sensitive information from the state
-      this.setState({ email: "", password: "" });
-      // if the credentials match
-      if (user) {
-        //Inform the parent to update its state***************!!!!!!!!!!!!
-        this.props.onLoginSuccess(user);
-        //Turn the loader off
-        this.setState({ theLoader: "loaderOff" });
-        // REDIRECT programatically to the home after login success
-        this.props.history.push("/");
-        // turn the loader off
-      } else {
-        window.alert("Error Occured or the fields didnot match");
-        console.log("Error Occured or the fields didnot match");
-        this.setState({ theLoader: "loaderOff" });
-      }
-    });
+export default class Login extends React.Component {
+  state = {
+    theLoader: "loaderOff",
+    email: "",
+    emailError: "",
+    password: "",
+    passwordError: ""
   };
 
-  //***********-------------------change Handlers */
+  // on change two way binding of the input fields
 
-  emailChangedHandler = event => {
+  //get the user inputs
+  change = e => {
     this.setState({
-      email: event.target.value
+      [e.target.name]: e.target.value
     });
+    console.log("hhhhh");
     console.log(this.state);
   };
 
-  passwordChangedHandler = event => {
+  // validator
+  validate = () => {
+    let isError = false;
+    const errors = {
+      emailError: "",
+      passwordError: ""
+    };
+
+    if (this.state.password.length < 5) {
+      isError = true;
+      errors.passwordError = "password needs to be atleast 5 characters long";
+    }
+
+    if (this.state.email.indexOf("@") === -1) {
+      isError = true;
+      errors.emailError = "Requires valid email";
+    }
+
     this.setState({
-      password: event.target.value
+      ...this.state,
+      ...errors
     });
-    console.log(this.state);
+
+    return isError;
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+    const err = this.validate();
+    // if there is no error
+    if (!err) {
+      //start the loader
+      this.setState({
+        theLoader: "loaderOn"
+      });
+      //call api via http communicator
+      //********************************************* */
+      const fields = {
+        email: this.state.email,
+        password: this.state.password
+      };
+
+      httpClient.logIn(fields).then(user => {
+        // remove the sensitive information from the state
+        this.setState({ email: "", password: "" });
+        // if the credentials match
+
+        if (user) {
+          //Inform the parent to update its state***************!!!!!!!!!!!!
+          this.props.onLoginSuccess(user);
+          //Turn the loader off
+          this.setState({ theLoader: "loaderOff" });
+          // REDIRECT programatically to the home after login success
+          this.props.history.push("/");
+          // turn the loader off
+        } else {
+          window.alert("Error Occured or the fields didnot match");
+          console.log("Error Occured or the fields didnot match");
+          this.setState({ theLoader: "loaderOff" });
+        }
+      });
+    }
+    //********************************************* */
   };
 
   render() {
-    let inputName = "email";
-    let title = "Sign in";
-    let userAction = "Enter your Email ID";
-    let buttonText = "Next";
-
-    if (this.state.user === true) {
-      console.log(this.state);
-      inputName = "password";
-      title = "Welcome";
-      userAction = "Enter your Password";
-      buttonText = "Login";
-    }
-
-    if (this.state.user) {
-      return (
-        <Router>
-          <div>
-            <Route path="/result" component={Result} />
-            <Redirect to="/result" />
-          </div>
-        </Router>
-      );
-    }
     return (
       <div className="container loginscreen">
         <div className="col-md-12 ">
           <div className={this.state.theLoader} />
-          <div className="card">
+          <div className="card padder-35">
             <div align="left">
-              <h3>
-                <b>Login</b>
-              </h3>
-
-              <h5>Enter your email ID</h5>
-              <input
-                name="email"
-                type="email"
-                onChange={this.emailChangedHandler}
-              />
-
-              <h5>Enter your password</h5>
-              <input
-                name="email"
-                type="password"
-                onChange={this.passwordChangedHandler}
-              />
-
-              <button className="btn btn-primary" onClick={this.activateLoader}>
-                {buttonText}
-              </button>
-              <span className="forgotpswdLink">
+              <Typography variant="display2" gutterBottom>
+                Sign in
+              </Typography>
+              <Typography variant="headline" gutterBottom>
+                with <b className="logo-button">Blogs</b>around account
+              </Typography>
+              <form className="login-form">
+                <TextField
+                  hintText="Email"
+                  name="email"
+                  floatingLabelText="Email"
+                  value={this.state.email}
+                  onChange={e => this.change(e)}
+                  errorText={this.state.emailError}
+                  floatingLabelFixed
+                />
+                <br />
+                <TextField
+                  name="password"
+                  hintText="password"
+                  floatingLabelText="Password"
+                  value={this.state.password}
+                  onChange={e => this.change(e)}
+                  errorText={this.state.passwordError}
+                  type="password"
+                  floatingLabelFixed
+                />
+                <br />
+                <RaisedButton
+                  label="Submit"
+                  onClick={e => this.onSubmit(e)}
+                  primary
+                />
+                  <span className="forgotpswdLink">
                 <Link to="/forgotpassword">Forgot password</Link>
               </span>
-
+              </form>
               <div className="registerLink">
-                <Link to="/register">Create account</Link>
+                <Link to="/register">
+                  <Typography variant="headline" gutterBottom>
+                    Sign up
+                  </Typography>
+                </Link>
               </div>
             </div>
           </div>
@@ -134,5 +149,3 @@ class Login extends Component {
     );
   }
 }
-
-export default Login;

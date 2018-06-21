@@ -24,7 +24,7 @@ const Carousel = (props) => {
                 
                     <div className="carousel-inner">
                     <div className="item active">
-                    <img src={one} alt="Los Angeles" />
+                    <img src={four} alt="Los Angeles" />
                     </div>
                     
 
@@ -33,10 +33,10 @@ const Carousel = (props) => {
                 </div>
                 
                 <div className="item">
-                    <img src={three} alt="New york" />
+                    <img src={one} alt="New york" />
                 </div>
                 <div className="item">
-                    <img src={four} alt="New york" />
+                    <img src={three} alt="New york" />
                 </div>
                 
                 </div>
