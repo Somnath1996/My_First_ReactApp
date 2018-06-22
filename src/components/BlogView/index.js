@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import Footer from "../Footerbar";
 import "./bstyle.css";
 import httpClient from "../../HttpCommunicator";
-import ReactHtmlParser from 'react-html-parser';
-
+var Parser = require('html-react-parser');
 class BlogView extends Component {
   constructor(props) {
     super(props);
@@ -38,11 +37,12 @@ class BlogView extends Component {
         console.log("error occured in getting bio from bckend");
         console.log(error);
       });
+
+     
   }
 
   render() {
 
-    
     console.log(this.props);
     return (
       <div className="container">
@@ -66,16 +66,11 @@ class BlogView extends Component {
               <h6>
                 <b>
                   {this.state.blogs.author} | {this.state.blogs.timestamp}
-                </b>{" "}
+                </b>
               </h6>
               <p className="font24">{this.props.location.state.description}</p>
-
-
-
-
-
-
-              <p className="font20"> { ReactHtmlParser(this.state.blogs.body) }</p>
+              
+              <p className="font20"> { Parser(`${this.state.blogs.body}`) }</p>
             </div>
           </div>
         </div>

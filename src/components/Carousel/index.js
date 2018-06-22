@@ -2,13 +2,13 @@ import React from 'react';
 import one from './images/one.jpg';
 import two from './images/two.jpg';
 import three from './images/three.jpg';
-import four from './images/four.jpg'
-
-
+import four from './images/four.jpg';
+import Paper from '@material-ui/core/Paper';
 
 const Carousel = (props) => {
  
     return (
+        <Paper  elevation={10}>
          <div className="container-fluid some" >
 
             <div className="row">
@@ -53,6 +53,7 @@ const Carousel = (props) => {
     </div>
   </div>
         </div>
+        </Paper>
     )
 
 }

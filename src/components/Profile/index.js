@@ -51,13 +51,15 @@ class Profile extends Component {
             <div className="col-md-6" align="left">
               <h1 className="font56">{this.state.currentUser.username}</h1>
               <p className="font15">
-                {this.state.date}|{" "}
-                {this.state.blogsCount ? this.state.blogsCount : "counting"}{" "}
+                {this.state.date}|{this.state.blogsCount ? this.state.blogsCount : "counting"}
                 blogs
               </p>
-              <hr />
+          
               <h4>Bio</h4>
-              <p> {this.state.bio}</p>
+              <p> {this.state.bio?this.state.bio:"Backend  Down please refresh"}</p>
+            <div className="fd">
+            </div>
+         
             </div>
 
             <div className="col-md-6">
@@ -71,10 +73,14 @@ class Profile extends Component {
               </div>
             </div>
           </div>
+          <div className= "fd">
+          </div>
           <Footer />
         </div>
       );
     } else {
+
+    
       return (
         <div className="container">
           <br />

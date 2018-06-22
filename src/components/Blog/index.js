@@ -1,13 +1,18 @@
 import React from "react";
+import Paper from '@material-ui/core/Paper';
 import { Link } from "react-router-dom";
 const Blog = props => {
   return (
     <div className="col-md-4 mainBlogWrapper">
+        <Paper  elevation={4}>
       <div className="cardi">
         <div>
+     
           <img className="card_img" src={props.image} alt="blogimage" />
+      
+
           <Link to={{ pathname: "/blogview", state: { ...props } }}>
-            <h3 align="left">
+            <h3  align="left">
               <b>{props.title}</b>
             </h3>
           </Link>
@@ -17,7 +22,7 @@ const Blog = props => {
           </p>
 
           <Link to={{ pathname: "/blogview", state: { ...props } }}>
-            <h4 align="left">
+            <h4  align="left">
               Read More  &nbsp;
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
                 <path
@@ -29,6 +34,8 @@ const Blog = props => {
           </Link>
         </div>
       </div>
+
+  </Paper>
     </div>
   );
 };

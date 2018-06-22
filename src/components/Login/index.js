@@ -5,6 +5,7 @@ import httpClient from "../../HttpCommunicator";
 import RaisedButton from "material-ui/RaisedButton";
 import Typography from "@material-ui/core/Typography";
 import "./styles.css";
+import Paper from '@material-ui/core/Paper';
 
 export default class Login extends React.Component {
   state = {
@@ -93,9 +94,13 @@ export default class Login extends React.Component {
 
   render() {
     return (
+
+
       <div className="container loginscreen">
         <div className="col-md-12 ">
           <div className={this.state.theLoader} />
+
+      <Paper  elevation={8}>
           <div className="card padder-35">
             <div align="left">
               <Typography variant="display2" gutterBottom>
@@ -105,7 +110,9 @@ export default class Login extends React.Component {
                 with <b className="logo-button">Blogs</b>around account
               </Typography>
               <form className="login-form">
+
                 <TextField
+                  className="width100p"
                   hintText="Email"
                   name="email"
                   floatingLabelText="Email"
@@ -116,6 +123,7 @@ export default class Login extends React.Component {
                 />
                 <br />
                 <TextField
+                className="width100p"
                   name="password"
                   hintText="password"
                   floatingLabelText="Password"
@@ -131,9 +139,9 @@ export default class Login extends React.Component {
                   onClick={e => this.onSubmit(e)}
                   primary
                 />
-                  <span className="forgotpswdLink">
-                <Link to="/forgotpassword">Forgot password</Link>
-              </span>
+                <span className="forgotpswdLink">
+                  <Link to="/forgotpassword">Forgot password</Link>
+                </span>
               </form>
               <div className="registerLink">
                 <Link to="/register">
@@ -144,8 +152,12 @@ export default class Login extends React.Component {
               </div>
             </div>
           </div>
+
+  </Paper>
         </div>
       </div>
-    );
+   
+
+  );
   }
 }

@@ -1,198 +1,215 @@
-
-.loginscreen.container{
-    max-width: 900px;
-    padding: 38px 60px;
+.loginscreen.container {
+  max-width: 900px;
+  padding: 38px 60px;
 }
 
 .headerwrapper {
-    text-align: right;
-    
-color: #2F2F30;
-background-color: whitesmoke;
- padding: 5px;
- 
+  text-align: right;
+
+  color: #2f2f30;
+  background-color: whitesmoke;
+  padding: 5px;
 }
-.login-state{
-    text-align: end;
+.login-state {
+  text-align: end;
 }
-.designWrapper{
-    text-align: left;
-    font-size: 20px;
-    padding: 8px;
-    width: 100%;
-    letter-spacing: 0px;
-    color: #646F78    ;
-    background-color: #F7F7F7;
+.designWrapper {
+  text-align: left;
+  font-size: 20px;
+  padding: 8px;
+  width: 100%;
+  letter-spacing: 0px;
+  color: #646f78;
+  background-color: #ffffff;
 }
 
-.logo-button{
-    text-decoration: none;
-    color: #646F78    ;
+.logo-button {
+  text-decoration: none;
+  color: #646f78;
 }
-.blog-wrapper{
-    background-color: aqua;
-    width:375px ;
-    height: 50px;
-    padding: 10px;
-  
+.blog-wrapper {
+  background-color: aqua;
+  width: 375px;
+  height: 50px;
+  padding: 10px;
 }
-.mainBlogWrapper{
-    margin-bottom:15px;
-    margin-top:15px;
-    
-    
-    
+.mainBlogWrapper {
+  margin-bottom: 40px;
+  margin-top: 15px;
 }
-.forgotpswdLink{
-    float: right;
-    padding: 33px 24px 24px 24px;
-    font-size: 13px;  
+.forgotpswdLink {
+  float: right;
+  padding: 33px 24px 24px 24px;
+  font-size: 13px;
 }
-.registerLink{
-    padding: 24px 24px 24px 0px;
-    font-size: 16px;
+.registerLink {
+  padding: 24px 24px 24px 0px;
+  font-size: 16px;
 }
 .loginscreen.container {
-    max-width: 600px;
-    padding: 84px 60px;
+  max-width: 600px;
+  padding: 50px 60px;
 }
-.card_img{
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+.card_img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
-
 
 .card {
-    width: 100%;
-    display: inline-block;
-    min-height: 378px;
-    padding: 15px 10px 15px 10px;
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
-    transition: 0.3s;
-    border-radius: 5px;
-    border: 1px solid #d6d6d6;
+  width: 100%;
+  display: inline-block;
+  min-height: 416px;
+  padding: 15px 10px 15px 10px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  border-radius: 5px;
+  border: 1px solid #d6d6d6;
 }
 
 .cardi {
-    width: 100%;
-    display: inline-block;
-    min-height: 397px;
-    padding: 15px 10px 1px 10px;
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
-    transition: 0.3s;
-    border-bottom: 1px solid #373737;
-    margin-bottom: 15px;
+  width: 100%;
+  display: inline-block;
+  min-height: 397px;
+  padding: 15px 10px 1px 10px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  border-bottom: 1px solid #ffffff;
+  margin-bottom: 15px;
 }
 
-.loaderOn{
-     height: 6px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    background-color: #ddd;
+.loaderOn {
+  height: 6px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #ddd;
 }
 .loaderOff {
-    visibility: hidden;;
-    height: 6px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    background-color: #ddd;
-  }
-  .loaderOn:before{
-    display: block;
-    position: absolute;
-    content: "";
+  visibility: hidden;
+  height: 6px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #ddd;
+}
+.loaderOn:before {
+  display: block;
+  position: absolute;
+  content: "";
+  left: -200px;
+  width: 200px;
+  height: 6px;
+  background-color: rgb(0, 188, 212);
+  animation: loading 0.5s linear infinite;
+}
+
+@keyframes loading {
+  from {
     left: -200px;
-    width: 200px;
-    height: 6px;
-    background-color: rgb(0, 188, 212);
-    animation: loading 0.5s linear infinite;
+    width: 30%;
   }
-  
-  @keyframes loading {
-      from {left: -200px; width: 30%;}
-      50% {width: 30%;}
-      70% {width: 70%;}
-      80% { left: 50%;}
-      95% {left: 120%;}
-      to {left: 100%;}
+  50% {
+    width: 30%;
   }
-
-  input {
-      display: block;
-  
-    border: none;
-    outline: none;
-    background: none;
-    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-    width: 60%;
+  70% {
+    width: 70%;
   }
-  
-h3,h5{
-    padding:15px 25px 10px 0px;
+  80% {
+    left: 50%;
+  }
+  95% {
+    left: 120%;
+  }
+  to {
+    left: 100%;
+  }
 }
 
+input {
+  display: block;
 
-button{
-    margin-top: 15px;
-    margin: 25px;
-    text-align: center;
-    font-size: 46px;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  width: 60%;
 }
 
-.branding{
-    text-align: center;
-    color: #fff ;
-
-    padding:8px;
-    background: #2F2F30;
-    font-size: 24px;
+h3,
+h5 {
+  padding: 15px 25px 10px 0px;
 }
 
+button {
+
+  text-align: center;
+  font-size: 46px;
+}
+
+.branding {
+  text-align: center;
+  color: #fff;
+
+  padding: 8px;
+  background: #2f2f30;
+  font-size: 24px;
+}
 
 .container-fluid {
-    margin-right: auto;
-    margin-left: auto;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.carousel{
-    position: relative;
-    height: 410px;
-    overflow: hidden;
-    
+.carousel {
+  position: relative;
+  height: 410px;
+  overflow: hidden;
 }
 a.login-btn {
-    padding: 4px 20px;
-    background: #262626;
-    color: #fff;
-    font-size: 16px;
-    border-radius: 3px;
-    letter-spacing: normal;
-    font-weight: 300;
-    text-transform: capitalize;
-    float: right;
+  padding: 4px 20px;
+  background: #262626;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 3px;
+  letter-spacing: normal;
+  font-weight: 300;
+  text-transform: capitalize;
+  float: right;
 }
-h1,h3,h4{
-    color: #414346;
+h1,
+h3,
+h4 {
+  color: #373737;
 }
-.profile-btn{
-    float: right;
-    font-size: 13.5px;
-    padding: 5px;
-    padding-right: 22px;
+.profile-btn {
+  float: right;
+  font-size: 13.5px;
+  padding: 5px;
+  padding-right: 22px;
 }
 
-.remove-margin{
-    margin-bottom: 30px;
+.remove-margin {
+  min-height: 40px;
+  margin-bottom: 30px;
 }
 
 svg {
-    height: 14px;
-    width: 14px;
-    position: relative;
+  height: 14px;
+  width: 14px;
+  position: relative;
+}
+.orange {
+  background: #f25351;
+}
+.fp-white-text {
+  color: #fff;
+}
+
+.fp-fix {
+  margin-bottom: 15px;
+  
 }

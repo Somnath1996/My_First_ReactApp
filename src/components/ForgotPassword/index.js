@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import TextField from "material-ui/TextField";
 import httpClient from "../../HttpCommunicator";
+import Paper from '@material-ui/core/Paper';
 import RaisedButton from "material-ui/RaisedButton";
 import Typography from "@material-ui/core/Typography";
 import "./pstyle.css";
@@ -95,6 +96,8 @@ class ForgotPassword extends Component {
       <div className="container loginscreen">
         <div className="col-md-12 ">
           <div className={this.state.theLoader} />
+
+  <Paper  elevation={8}>
           <div className="card padder-35">
             <div align="left">
               <Typography variant="display2" gutterBottom>
@@ -108,6 +111,7 @@ class ForgotPassword extends Component {
 
 
                  <TextField
+                  className="width100p"
                   hintText="Email"
                   name="email"
                   floatingLabelText="Email"
@@ -126,6 +130,8 @@ class ForgotPassword extends Component {
               </form>
             </div>
           </div>
+
+</Paper>
         </div>
       </div>
     );

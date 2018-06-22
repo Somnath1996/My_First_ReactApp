@@ -39,7 +39,7 @@ class FrontPage extends Component {
         <div>
           <Carousel />
           <div>
-            <h1>
+            <h1 >
               Welcome to<b> Blogs</b>around
             </h1>
           </div>
@@ -47,6 +47,8 @@ class FrontPage extends Component {
           <Footer />
         </div>
       );
+
+
     } else {
     return (
     <div>
@@ -56,6 +58,8 @@ class FrontPage extends Component {
     </div>
     );
     }
+
+    
   }
 }
 

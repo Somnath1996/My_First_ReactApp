@@ -42,6 +42,23 @@ httpClient.logIn = function(credentials) {
   });
 };
 
+//send register request to backend server
+httpClient.register = function(credentials) {
+  return this({
+    method: "post",
+    url:  "http://localhost:3000/routes/handlers/users/register",
+    data: credentials
+  }).then(serverResponse => {
+    console.log(serverResponse);
+    const user = serverResponse.data.user;
+    if (user) {
+      return user;
+    } else {
+      return false;
+    }
+  });
+};
+
 
 //send the blog data  to backend server
 httpClient.createBlog = function(details) {
@@ -101,21 +118,7 @@ httpClient.getBlogBody = function(articleid) {
   });
 };
 
-// logIn and signUp functions could be combined into one since the only difference is the url we're sending a request to..
-httpClient.signUp = function(userInfo) {
-  return this({ method: "post", url: "/api/users", data: userInfo }).then(
-    serverResponse => {
-      const token = serverResponse.data.token;
-      if (token) {
-        // sets token as an included header for all subsequent api requests
-        this.defaults.headers.common.token = this.setToken(token);
-        return jwtDecode(token);
-      } else {
-        return false;
-      }
-    }
-  );
-};
+
 
 //delete the jwt token from the localStorage
 httpClient.logOut = function() {

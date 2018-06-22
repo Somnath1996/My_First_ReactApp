@@ -1,3 +1,4 @@
+//incorporate input validation
 import React, { Component } from "react";
 import Footer from "../ShortFooter";
 import "./wstyle.css";
@@ -18,7 +19,7 @@ class Write extends Component {
       titleError: "",
       description: "",
       descriptionError: "",
-      body: "working",
+      body: "",
       bodyError: "",
       image: "",
       imageError: "",
